@@ -1,5 +1,6 @@
 import csv
 from datetime import datetime
+import os
 
 class Logger:
     def __init__(self, fitness_data, food_data, metrics):
@@ -20,7 +21,18 @@ class Logger:
         strain = self.fitness_data["strain"]
         recovery_percentage = self.fitness_data["recovery"]
         
-        # Log the data into daily_data.csv
-        with open("daily_data.csv", mode="a", newline='') as file:
+        # Define the file name
+        file_name = "daily_data.csv"
+        
+        # Check if the file exists, create it with headers if not
+        file_exists = os.path.exists(file_name)
+        if not file_exists:
+            with open(file_name, mode="w", newline='') as file:
+                writer = csv.writer(file)
+                # Write the header row
+                writer.writerow(["date", "calories_consumed", "calories_burned", "net_calories", "calorie_goal_met", "strain", "recovery_percentage"])
+        
+        # Append the data to the file
+        with open(file_name, mode="a", newline='') as file:
             writer = csv.writer(file)
             writer.writerow([date, calories_consumed, calories_burned, net_calories, calorie_goal_met, strain, recovery_percentage])
