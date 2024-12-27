@@ -25,7 +25,7 @@ openai, pandas, matplotlib: **pip install openai pandas matplotlib**
 	•	metrics.py: Reads user-defined metrics from user_data.txt.
 	•	daily_data.csv: Stores daily fitness data (used by generate_plots.py).
 
- ### User Instructions
+### User Instructions
 
 1. Generating the Daily Summary
 To generate a daily fitness summary:
@@ -33,21 +33,18 @@ To generate a daily fitness summary:
 	2.	Open user_data.txt to customize your target metrics (e.g., calorie intake goal).
 	3.	Run the following command: **python main.py**
 
- Output: A detailed daily summary displayed in the terminal. 
+Output: A detailed daily summary displayed in the terminal. 
 
- Example: 
- *Today, you consumed 2000 calories and burned 800 calories, making your net daily calorie intake 1400. Thus, you have undershot your target daily calorie goal by 100.
- You performed the following exercises: Running, Weightlifting and put moderate stress on yourself, which considering your recovery rate of 75%, was a good decision.
- I recommend a moderate workout tomorrow and eat more protein-rich foods as well as complex carbohydrates like chicken or brown rice. 
- This is because your recovery rate is high and you have a small calorie deficit to balance.*
+Example: 
+*Today, you consumed 2000 calories and burned 800 calories, making your net daily calorie intake 1400. Thus, you have undershot your target daily calorie goal by 100.
+You performed the following exercises: Running, Weightlifting and put moderate stress on yourself, which considering your recovery rate of 75%, was a good decision.
+I recommend a moderate workout tomorrow and eat more protein-rich foods as well as complex carbohydrates like chicken or brown rice. 
+This is because your recovery rate is high and you have a small calorie deficit to balance.*
 
 2. Generating and Analyzing Plots
-To generate visual plots and get AI insights:
-	1.	Ensure daily_data.csv is updated with your latest fitness data.
-	•	File should include columns: date, calories_consumed, calories_burned, strain, recovery.
-	2.	Run the following command: **python generate_plots.py**
+To generate visual plots and get AI insights, run the following command: **python generate_plots.py**
 
-  The script will: 
+The script will: 
 
 	•	Generate the following plots and save them in a folder called plots:
 	•	Calories Consumed vs. Burned (Bar Chart)
