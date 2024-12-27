@@ -2,6 +2,7 @@ from daily_summary import DailySummary
 from fitness_data import FitnessData
 from food_data import FoodData
 from metrics import Metrics
+from logger import Logger
 
 def main():
     # API keys for FatSecret and Whoop
@@ -16,8 +17,13 @@ def main():
     metrics = Metrics("user_data.txt").get_metrics()
 
     # Generate and display the LLM-generated summary
-    summary = DailySummary(fitness_data, food_data, metrics, llm_api_key).generate_summary()
+    daily_summary = DailySummary(fitness_data, food_data, metrics, llm_api_key)
+    summary = daily_summary.generate_summary()
     print(summary)
+
+    # Log the data into the CSV file
+    logger = Logger(fitness_data, food_data, metrics)
+    logger.log_data()
 
 if __name__ == "__main__":
     main()
